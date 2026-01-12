@@ -1,0 +1,11 @@
+Transaction_Type,Payment_Gateway,Transaction_City,Transaction_State,Transaction_Status,Device_OS,Transaction_Frequency,Transaction_Amount_Deviation,Days_Since_Last_Transaction,Merchant_Category,Transaction_Channel,amount
+Purchase,SamplePay,New Delhi,Delhi,Completed,Android,5,10.5,3,Purchases,Mobile,250.00
+Bank Transfer,Other,Mumbai,Maharashtra,Completed,iOS,2,-50.0,15,Other,Online,5000.00
+Subscription,UPI Pay,Bangalore,Karnataka,Completed,Windows,10,5.2,1,Brand Vouchers and OTT,Online,99.99
+Investment,Dummy Bank,Hyderabad,Telangana,Pending,MacOS,1,100.0,20,Investment,Online,10000.00
+Refund,SamplePay,Chennai,Tamil Nadu,Completed,Android,3,-25.5,7,Purchases,Mobile,150.00
+Other,Alpha Bank,Kolkata,West Bengal,Failed,Windows,0,200.0,30,Financial services and Taxes,In-store,500.00
+Purchase,Sigma Bank,Pune,Maharashtra,Completed,iOS,8,2.3,2,More Services,Mobile,75.50
+Bank Transfer,SamplePay,Ahmedabad,Gujarat,Completed,Android,4,-10.0,5,Utilities,Online,1500.00
+Subscription,Other,Jaipur,Rajasthan,Completed,Linux,2,15.5,10,Home delivery,Mobile,49.99
+Purchase,UPI Pay,Lucknow,Uttar Pradesh,Completed,Android,6,8.0,3,Purchases,Mobile,200.00
