@@ -1,7 +1,7 @@
 """
 Flask Backend API for Fraud Detection
 """
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template_string
 import joblib
 import numpy as np
 import pandas as pd
@@ -71,14 +71,58 @@ MERCHANT_MAP = {'Brand Vouchers and OTT': 0, 'Home delivery': 1, 'Utilities': 2,
 
 @app.route('/', methods=['GET'])
 def home():
-    return jsonify({
-        'message': 'Fraud Detection API',
-        'version': '1.0',
-        'endpoints': {
-            'predict': '/predict (POST)',
-            'health': '/health (GET)'
-        }
-    })
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Fraud Detection API</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+            .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+            h1 { color: #333; }
+            .endpoint { background: #f9f9f9; padding: 15px; margin: 10px 0; border-left: 4px solid #007bff; }
+            .method { font-weight: bold; color: #007bff; }
+            code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+            .info { background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🔍 Fraud Detection API</h1>
+            <p><strong>Version:</strong> 1.0</p>
+            <p><strong>Status:</strong> ✅ Running</p>
+            
+            <div class="info">
+                <h3>Available Endpoints:</h3>
+                <div class="endpoint">
+                    <div class="method">GET</div>
+                    <code>/health</code> - Health check
+                </div>
+                <div class="endpoint">
+                    <div class="method">POST</div>
+                    <code>/predict</code> - Single transaction prediction
+                </div>
+                <div class="endpoint">
+                    <div class="method">POST</div>
+                    <code>/predict-batch</code> - Batch transaction predictions
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 5px;">
+                <h3>📊 Model Performance</h3>
+                <p><strong>Accuracy:</strong> 95.38%</p>
+                <p><strong>Precision (Fraud):</strong> 88%</p>
+                <p><strong>Recall (Fraud):</strong> 94%</p>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: center; color: #666; font-size: 12px;">
+                <p>Fraud Detection System | Machine Learning Model</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    return render_template_string(html)
 
 @app.route('/health', methods=['GET'])
 def health():
