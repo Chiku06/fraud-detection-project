@@ -69,7 +69,17 @@ MERCHANT_MAP = {'Brand Vouchers and OTT': 0, 'Home delivery': 1, 'Utilities': 2,
                 'Purchases': 3, 'Other': 4, 'More Services': 5, 
                 'Financial services and Taxes': 6, 'Investment': 7}
 
-@app.route('/', methods=['GET'])
+@app.route('/predict', methods=['GET', 'POST'])
+def predict():
+    if request.method == 'GET':
+        return jsonify({
+            "message": "Use POST with JSON to access this endpoint"
+        })
+
+    data = request.get_json()
+    return jsonify({"received": data})
+
+
 def home():
     html = """
     <!DOCTYPE html>
